@@ -10,7 +10,7 @@ const hoverBg = useColorModeValue('gray.200', 'gray.300')
 const txtColor = useColorModeValue('gray.600', 'gray.600')
 
   return (
-      <Box bg={navBg} px={4}>
+      <Box bg={navBg} px={4}  >
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <Link to="/">
             <Box bg='gray.50' px={4} rounded='2xl'  _hover={{ bg: hoverBg }} >

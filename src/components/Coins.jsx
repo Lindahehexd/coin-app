@@ -1,28 +1,54 @@
 // 把props傳出去給其他元件用 (下對上)
-import { Flex, HStack, Box, useColorModeValue, SimpleGrid, GridItem, Image } from "@chakra-ui/react";
+import { Flex, HStack, Box, useColorModeValue, SimpleGrid, GridItem, Image, Text } from "@chakra-ui/react";
+
+import { Table, Thead, Tbody, Tfoot, Tr, Th, Td, TableCaption, TableContainer } from "@chakra-ui/react";
 
 const Coins = ({ img, symbol, price, name, market_cap, rank, priceChange, volume }) => {
   const hoverBg = useColorModeValue("gray.100", "gray.600");
 
   return (
-    <HStack>
-      <Box w="1000px" gap={4} border="1px" borderColor="gray.200" rounded="md" m={2} p={2} _hover={{ bg: hoverBg }}>
-        <SimpleGrid columns={6} spacing={3} alignItems="center" mx={2}>
-          <Flex gap={7} alignItems="center">
-            <GridItem>#{rank}</GridItem>
-            <Image h="40px" src={img} alt="crypto" />
+    <HStack w="100%" bg="teal">
+      <Flex
+        gap={4}
+        border="1px"
+        borderColor="gray.200"
+        rounded="md"
+        m={2}
+        p={2}
+        _hover={{ bg: hoverBg }}
+        justify="space-between"
+        w="100%"
+      >
+
+        <Flex bg="gray.500" w="100%" justify="left" align="center" gap={3}>
+          <Flex bg="pink" w="50px" justify="left">
+            <Text>#{rank}</Text>
           </Flex>
-          <GridItem>
-            {name} ({symbol})
-          </GridItem>
-          <GridItem>${price}</GridItem>
-          <GridItem fontWeight="medium" color={priceChange > 0 ? "green.400" : "red.400"}>
-            {priceChange}%
-          </GridItem>
-          <GridItem>${volume}</GridItem>
-          <GridItem>${market_cap}</GridItem>
-        </SimpleGrid>
-      </Box>
+
+          <Flex bg="orange" align="center" justify="left" w="150px">
+            <Image bg="pink" h="40px" src={img} alt="crypto" mr={1} />
+            <Text>
+              {name} ({symbol})
+            </Text>
+          </Flex>
+
+          <Flex bg="pink" w="80px" display={{ base: "none", lg: "flex", lg: "flex" }} >
+            <Text>{price}</Text>
+          </Flex>
+
+          <Flex bg="pink" w="50px" fontWeight="medium" color={priceChange > 0 ? "green.400" : "red.400"}>
+            <Text>{priceChange}%</Text>
+          </Flex>
+
+          <Flex bg="pink" w="120px" display={{ base: "none",md: "none",lg: "flex" }}>
+            <Text>${volume}</Text>
+          </Flex>
+
+          <Flex bg="pink" flexGrow={1} display={{ base: "none", md: "none", lg: "flex" }}>
+            <Text>${market_cap}</Text>
+          </Flex>
+        </Flex>
+      </Flex>
     </HStack>
   );
 };
