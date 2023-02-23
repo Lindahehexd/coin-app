@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Coins from "../components/Coins";
 import { Link } from "react-router-dom";
-import { Box, Heading, HStack, VStack, Stack, Center, Flex, Text } from "@chakra-ui/react";
+import { Box, Heading, HStack, VStack, Stack, Center, Flex, Text, useColorModeValue } from "@chakra-ui/react";
 import { Input } from "@chakra-ui/react";
 import { Grid, GridItem } from "@chakra-ui/react";
 import { SimpleGrid } from "@chakra-ui/react";
@@ -17,6 +17,8 @@ const Home = () => {
   const [search, setSearch] = useState("");
 
   const [loading, setLoading] = useState(true);
+
+  const inputBg = useColorModeValue('gray.100' ,  'gray.700')
 
   const url =
     "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false";
@@ -54,9 +56,9 @@ const Home = () => {
   return (
     <VStack mx={4}>
       <Header />
-      <form>
-        <Input type="search" placeholder="Search Coins..." m={3} justifyItems="center" onChange={handleChange}></Input>
-      </form>
+      <Flex justify='center'>
+        <Input type="search" placeholder="Search Coins..." m={3} justifyItems="center" onChange={handleChange} bg={inputBg}/>
+      </Flex>
       {/* 先列符合filter內的東西， 如果沒有就map全部出來 */}
 
       <Flex justify="center" px={3}>
@@ -64,12 +66,12 @@ const Home = () => {
           <Flex gap={4} m={2} p={2} borderBottom="3px solid #f0f0f0" w="95%" justify="space-between">
             <Text>RANK</Text>
             <Text ml={{ sm: "15px" }}>Icon</Text>
-            <Text ml={{ sm: "40px" }} display={{ base: "none", md: "flex", lg: "flex" }} >
+            <Text ml={{ sm: "40px", lg:'5px' }} display={{ base: "none", md: "none", lg: "flex" }} >
               Price
             </Text>
-            <Text mr={{ sm: 1 }}>24h</Text>
-            <Text display={{ base: "none", lg: "flex", lg: "flex" }}>Volume</Text>
-            <Text display={{ base: "none", lg: "flex", lg: "flex" }}>Mkt Cap</Text>
+            <Text mr={{ sm: 7, lg: 5}}>24h</Text>
+            <Text  mr={{ sm: 1, lg: 5}} display={{ base: "none",  lg: "flex" }}>Volume</Text>
+            <Text mr={{ sm: 1, lg: 1}} display={{ base: "none",  lg: "flex" }}>Mkt Cap</Text>
           </Flex>
 
           {loading && skeletonRow()}

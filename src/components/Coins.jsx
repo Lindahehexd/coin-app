@@ -32,8 +32,8 @@ const Coins = ({ img, symbol, price, name, market_cap, rank, priceChange, volume
             </Text>
           </Flex>
 
-          <Flex  w="80px" display={{ base: "none", lg: "flex", lg: "flex" }} >
-            <Text>{price}</Text>
+          <Flex  w="80px" display={{ base: "none",  lg: "flex" }} >
+            <Text>${price}</Text>
           </Flex>
 
           <Flex w="50px" fontWeight="medium" color={priceChange > 0 ? "green.400" : "red.400"}>

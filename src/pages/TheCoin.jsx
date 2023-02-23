@@ -46,6 +46,10 @@ const TheCoin = () => {
     );
   }
 
+
+
+
+
   return (
     <Center>
       <VStack m={4} spacing={7} p={8}>

@@ -3,10 +3,12 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import TheCoin from "./pages/TheCoin";
 import NotFound from "./pages/NotFound";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   return (
     <BrowserRouter>
+    <ScrollToTop/>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
