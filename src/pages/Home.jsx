@@ -59,42 +59,42 @@ const Home = () => {
       </form>
       {/* 先列符合filter內的東西， 如果沒有就map全部出來 */}
 
-<Flex bg='pink'  justify='center' px={3}>
+      <Flex justify="center" px={3}>
+        <Box maxW="800px">
+          <Flex gap={4} m={2} p={2} borderBottom="3px solid #f0f0f0" w="95%" justify="space-between">
+            <Text>RANK</Text>
+            <Text ml={{ sm: "15px" }}>Icon</Text>
+            <Text ml={{ sm: "40px" }} display={{ base: "none", md: "flex", lg: "flex" }} >
+              Price
+            </Text>
+            <Text mr={{ sm: 1 }}>24h</Text>
+            <Text display={{ base: "none", lg: "flex", lg: "flex" }}>Volume</Text>
+            <Text display={{ base: "none", lg: "flex", lg: "flex" }}>Mkt Cap</Text>
+          </Flex>
 
-      <Box maxW="900px" bg="red.800" >
-        <Flex gap={4} m={2} p={2} borderBottom="3px solid #f0f0f0" w="95%" justify="space-between">
-          <Text >RANK</Text>
-          <Text ml={{sm:'15px'}} bg='blue'>Icon</Text>
-          <Text ml={{sm:'40px'}} display={{ base: "none", md: "flex", lg: "flex" }} bg='blue'>Price</Text>
-          <Text mr={{sm:1}}>24h</Text>
-          <Text display={{ base: "none", lg: "flex", lg: "flex" }}>Volume</Text>
-          <Text display={{ base: "none", lg: "flex", lg: "flex" }}>Mkt Cap</Text>
-        </Flex>
+          {loading && skeletonRow()}
 
-        {loading && skeletonRow()}
-
-        {filteredCoins.map((coin) => {
-          return (
-            <Link to={`/coin/${coin.id}`} key={coin.id}>
-              <HStack w="100%" bg="red.400">
-                <Coins
-                  key={coin.id}
-                  rank={coin.market_cap_rank}
-                  name={coin.name}
-                  img={coin.image}
-                  symbol={coin.symbol}
-                  price={coin.current_price.toLocaleString()}
-                  priceChange={coin.price_change_percentage_24h.toFixed(1)}
-                  volume={coin.total_volume.toLocaleString()}
-                  market_cap={coin.market_cap.toLocaleString()}
-                />
-              </HStack>
-            </Link>
-          );
-        })}
-      </Box>
+          {filteredCoins.map((coin) => {
+            return (
+              <Link to={`/coin/${coin.id}`} key={coin.id}>
+                <HStack w="100%">
+                  <Coins
+                    key={coin.id}
+                    rank={coin.market_cap_rank}
+                    name={coin.name}
+                    img={coin.image}
+                    symbol={coin.symbol}
+                    price={coin.current_price.toLocaleString()}
+                    priceChange={coin.price_change_percentage_24h.toFixed(1)}
+                    volume={coin.total_volume.toLocaleString()}
+                    market_cap={coin.market_cap.toLocaleString()}
+                  />
+                </HStack>
+              </Link>
+            );
+          })}
+        </Box>
       </Flex>
-
     </VStack>
   );
 };

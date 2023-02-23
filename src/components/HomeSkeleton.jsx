@@ -3,12 +3,10 @@ import { Skeleton, Stack, VStack } from "@chakra-ui/react";
 
 const HomeSkeleton = () => {
   return (
-    <Stack >
-      <Skeleton height='60px'>
-        <VStack>
-          <Coins />
-        </VStack>
-      </Skeleton>
+    <Stack  spacing={6}>
+      <Skeleton height='30px' w='700px' />
+      <Skeleton height='30px' w='700px' />
+      <Skeleton height='30px' w='700px' />
     </Stack>
   );
 };
