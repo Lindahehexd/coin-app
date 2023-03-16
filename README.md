@@ -25,7 +25,7 @@ Client: React, Chakra UI
 
  明亮模式
 
-![Imgur](https://i.imgur.com/swIFdFA.png)
+![Imgur](https://i.imgur.com/MgSYvoL.png)
 
  黑暗模式
 
