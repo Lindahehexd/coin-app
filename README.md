@@ -12,6 +12,7 @@ Link: https://coin-app-one.vercel.app/
 # 功能
 
 - 顯示及時虛擬貨幣排行
+- 搜尋貨幣
 - 貨幣頁面顯示圖表、一年內的價格變化、貨幣簡介
 - 使用React router進行跳頁
 - 讀取中時有做Skeleton
