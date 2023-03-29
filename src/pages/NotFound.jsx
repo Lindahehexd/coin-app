@@ -1,5 +1,5 @@
 import React from "react";
-import { Center, Flex, Heading, Text, VStack } from "@chakra-ui/react";
+import { Center, Heading, Text, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 const NotFound = () => {
